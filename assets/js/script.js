@@ -1,62 +1,50 @@
-// I need to be able to insert my name into a form (First Name & Family Name)
 
-// Create a form in html
-// Form Title should be to the left of form entry
-// Create a placeholder in form with 'Enter Your Name'
-// Name should enable user to enter first name AND surname
-// Ensure user can only use:
-// standard upper / lower case letters
-// and permitted characters: !#$%&'*+-/=?^_`{|}~ should be allowed in the name field.
-// Ensure user is alerted with error if names do not exist
-// Names should have more than 1 letter for each name
-// Names should always have two names (first and surname)
-// Double barrels are acceptable as they are one word
+// Step-by-Step Process to Build a Form with Specific Requirements:
 
-// I need to be able to insert my email into the form
+// 1. Form Design:
 
-// Create a form in html
-// Form Title should be to the left of form entry
-// Create a placeholder in form with 'Enter Your Email'
-// Name should enable user to enter email address
-// Ensure user cannot input spaces in this text
-// Ensure user is alerted with error if email does not exist
-// Email must meet format: test@abc.com
-// any missing parts of email should be rejected i.e test.com, test@abc, @abc.com, test@.com
+// Create an HTML document.
+// Establish a form structure with a title positioned to the left of each form entry.
+// Utilize placeholders for clarity, such as 'Enter Your Name.'
 
-// I need to be able to insert my credit/debit card into the form 
+// 2. Name Input:
 
-// Create a form in html
-// Form Title should be to the left of form entry
-// Create a placeholder in form with 'Enter a proxy credit card number'
-// Name should enable user to enter only numbers
-// Ensure user cannot input spaces in this text
-// Ensure user is alerted with error if card number does not exist
-// Card number must use the LUHN Algorithm
-// numbers must have 16 numbers, nothing more, nothing less.
-// Stop user from exceeding 16 numbers upon input, and throw error if too low
-// One number must be greater than 0
+// Add input fields for both first names and surnames.
+// Implement restrictions for input: standard upper/lowercase letters and permitted characters: !#$%&'*+-/=?^_`{|}~.
+// Set up error alerts for missing names, names with fewer than two letters, or names without both first and surnames.
+// Allow double barrels as one word.
 
-// When the submit button is clicked:
-// if all conditions are valid, an email from given email must be sent to challenge@dn-uk.com
-// intervals in form must be cleared to allow user to resubmit
-// No action ie email is sent when error persists in form in either name, email of card number
+// 3. Email Input:
 
+// Integrate a section for email input with a placeholder like 'Enter Your Email.'
+// Restrict input to prevent spaces.
+// Establish error alerts for a missing or incorrectly formatted email (e.g., test@abc.com) or incomplete email addresses.
 
-// CSS
+// 4. Credit/Debit Card Input:
 
-// For Page Consistency use:
-// Calibri font and text size 11
-// centred horizontally and vertically
-// Form: Green RGB 137,200,46 Hex 89c82e 
-// Text: Grey RGB 60,60,59 Hex 3c3c3b 
-// Submit Button: Pink RGB 231,0,100 Hex 700064
+// Include a section for credit/debit card input with a placeholder like 'Enter a proxy credit card number.'
+// Allow input of only numbers.
+// Restrict input to prevent spaces.
+// Alert users with an error if the card number is missing, doesn't follow the LUHN Algorithm, or is not exactly 16 numbers.
+// Throw an error if the user inputs too few or too many numbers.
+// Ensure at least one number is greater than 0.
 
-// Fields in error should be highlighted in Pink RGB 231,0,100 Hex 700064
+// 5. Submit Button:
 
-// I need the application to reduce the load on the back-end server, 
-// validation should be done on page.
-// I.e. JavaScript event onblur() for Name and Credit Card number
-// And HTML field type or Regex for Email.
+// Implement validation checks for all conditions before allowing submission.
+// If conditions are valid, configure the form to send an email from the provided email to challenge@dn-uk.com.
+// Clear intervals in the form to allow users to resubmit.
+// No action (e.g., email sending) should occur if errors persist in the form (name, email, or card number).
 
+// 6. CSS Styling:
 
+// Maintain page consistency by using the Calibri font and text size 11.
+// Center the page both horizontally and vertically.
+// Assign a green color (RGB 137, 200, 46; Hex 89c82e) to the form, a grey color (RGB 60, 60, 59; Hex 3c3c3b) to text, and a pink color (RGB 231, 0, 100; Hex 700064) to the submit button.
+// Highlight fields in error with a pink color (RGB 231, 0, 100; Hex 700064).
 
+// 7. Page Optimization:
+
+// Implement JavaScript events onblur() for name and credit card number fields.
+// Use HTML field types or Regex for email validation.
+// Conduct validation on the page to reduce the load on the back-end server.
