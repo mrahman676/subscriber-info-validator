@@ -25,23 +25,16 @@ function validateCard () {
     const cardNumArray = cardNumber.split('');
     
     if (cardNumArray.length === 16) {
-        return cardNumArray;
+        const realCardNumber = cardNumArray.join('');
+        const cardNumberValue = parseFloat(realCardNumber);
+        return cardNumberValue;
     }
     else {
         alert("Your card number must be 16 digits long")
     }
-
-    const realCardNumber = cardNumArray.join('');
-
-    // Input value needs to 16 digits, we can put digits into an array, count the length of array
-    // then put it back as a string
-
-    const cardNumberValue = parseFloat(realCardNumber);
-
-    return cardNumberValue;
 }
     
-
+    
 function submitButton() {
 
     // Submit works when conditions are met: validateName() || validateEmail() || 
