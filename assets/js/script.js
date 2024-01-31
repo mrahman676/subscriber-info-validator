@@ -21,17 +21,26 @@ function validateCard () {
 
     // Validate that card number is 16 digits
 
-    const cardNumber = document.getElementById("form-input3").value;
-    const cardNumberValue = parseFloat(cardNumber);
+    const cardNumber = document.getElementById("form-input3").value
+    const cardNumArray = cardNumber.split('');
     
-    if (cardNumberValue === 16) {
-        return cardNumberValue;
+    if (cardNumArray.length === 16) {
+        return cardNumArray;
+    }
+    else {
+        alert("Your card number must be 16 digits long")
     }
 
-    else {
-        alert("Card Number must be 16 digits");
-    };
-};
+    const realCardNumber = cardNumArray.join('');
+
+    // Input value needs to 16 digits, we can put digits into an array, count the length of array
+    // then put it back as a string
+
+    const cardNumberValue = parseFloat(realCardNumber);
+
+    return cardNumberValue;
+}
+    
 
 function submitButton() {
 
