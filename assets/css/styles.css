@@ -1,7 +1,6 @@
 
 
 /* Form */
-
 .form {
     border: solid #3c3c3b 5px;
     border-radius: 30px;  
@@ -25,10 +24,11 @@ label {
     display: table-cell;
 }
 
-#form-input {
+#form-input1, #form-input2, #form-input3 {
     display: table-cell;
     width: 13vw;
 }
+
 
 .button {
     display: flex;
@@ -46,6 +46,6 @@ label {
     font-size: 11px;
 }
 
-#card-design {
+.card-design {
     width: 13vw;
 }
