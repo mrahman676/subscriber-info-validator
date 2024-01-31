@@ -23,34 +23,36 @@ function validateCard () {
 
     const cardNumber = document.getElementById("form-input3").value;
     const cardNumberValue = parseFloat(cardNumber);
-
-    console.log(cardNumber);
-    console.log(cardNumberValue);
     
     if (cardNumberValue === 16) {
-        return;
+        return cardNumberValue;
     }
 
     else {
         alert("Card Number must be 16 digits");
     };
-
 };
 
 function submitButton() {
 
-    // Submit works when conditions are met
+    // Submit works when conditions are met: validateName() || validateEmail() || 
 
-    validateName();
-    validateEmail();
-    validateCard();
+    if (validateCard()) {
 
-    const senderEmail = 'mailto:challenge@dn-uk.com';
-    const nameValue = document.getElementById("form-input1").value;
-    const emailValue = document.getElementById("form-input2").value;
-    const cardNumValue = document.getElementById("form-input3").value;
+        console.log("card is validated");
+
+        const senderEmail = 'mailto:challenge@dn-uk.com';
+        const nameValue = document.getElementById("form-input1").value;
+        const emailValue = document.getElementById("form-input2").value;
+        const cardNumValue = document.getElementById("form-input3").value;
 
     window.location.href = senderEmail + 
     `?subject=Subscriber%20Details&body=Name:%20${nameValue}%0D%0AEmail:%20${emailValue}%0D%0ACard%20Number:%20${cardNumValue}&cc=` ;
+    return;
+    }
+    
+    
+
+    
 
 }
