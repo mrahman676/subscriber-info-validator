@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/styles.css">
     <title>Subscriber Form</title>
 </head>
 <body>
@@ -10,21 +11,29 @@
 
 <section class="form">
 
-    <div>
-        <label class="form-title">Name:</label>
-        <input class="form-input" placeholder="Enter Your Name"></input>
-    </div>
+        <div class="form-content">
 
-    <div>
-        <label class="form-title">Email:</label>
-        <input class="form-input" placeholder="Enter Your Email"></input>
-    </div>
+            <p>
+                <label for="form-title">Name:</label>
+                <input id="form-input" placeholder="Enter Your Name"></input>
+            </p>
 
-    <div>
-        <label class="form-title">Card:</label>
-        <input class="form-input" placeholder="Enter a proxy credit card number"></input>
-    </div>
-    
+            <p>
+                <label for="form-title">Email:</label>
+                <input id="form-input" placeholder="Enter Your Email"></input>
+            </p>
+
+            <p>
+                <label for="form-title">Card:</label>
+                <input id="form-input" placeholder="Enter a proxy credit card number" id="card-design"></input>
+            </p>
+            
+        </div>
+
+        <div class="button">
+            <input type="submit" value="Submit" class="btn">
+        </div>
+
 </section>
 <script src="./assets/js/script.js"></script>
 </body>

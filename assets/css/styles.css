@@ -3,5 +3,49 @@
 /* Form */
 
 .form {
-    display: flex;
+    border: solid #3c3c3b 5px;
+    border-radius: 30px;  
+    background-color: #89c82e;
+    color: #3c3c3b; 
+    width: 16vw;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 30px;
+
 };
+
+.form-content {
+display: table;
+}
+
+p {
+display: table-row;
+}
+
+label {
+    display: table-cell;
+}
+
+#form-input {
+    display: table-cell;
+    width: 13vw;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin-top: 1vh;
+}
+
+.btn {
+    background-color: #700064;
+    border-radius: 5px; 
+    width: 65px;
+}
+
+.form-title {
+    font-size: 11px;
+}
+
+#card-design {
+    width: 13vw;
+}
