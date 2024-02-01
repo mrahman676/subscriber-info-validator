@@ -1,26 +1,51 @@
 // Functionality for Name Input
 
 function validateName () {
-    // Conditions to meet for Names
 
-      // let firstName = names[0].split('');
-    // let secondName = names[1].split('');
+    const name = document.getElementById("form-input1").value
+
+    if (name === '') {
+        console.log("Please Enter Your Given Name and Family Name")
+        return;
+    };
+
+    const nameArray = name.split(' ');
+    console.log(nameArray);
+    
+    if (nameArray.length < 2) {
+        console.log("Name is invalid");
+        return;
+    }
+
+    let firstName = nameArray[0].split('');
+    let secondName = nameArray[1].split('');
 
     // Ensure that users enter a first name with more than 1 character
 
-    // if (firstName.length || secondName.length < 2) {
-    //     alert("Email Address is invalid")
-    // }
+    if (firstName.length < 2 || secondName.length < 2) {
+        console.log("Name is invalid")
+    }
+
+    else {
+        console.log("Name is valid")
+        return name;
+    }
+    
 }
 
 function validateEmail () {
 
     const email = document.getElementById("form-input2").value
+
+    if (email === '') {
+        console.log("Please Enter Your Email")
+        return;
+    };
+
     const emailArray = email.split('@');
 
     console.log(emailArray);
 
-    
     const other = emailArray[1].split('.');
     
     console.log(other);
@@ -30,11 +55,16 @@ function validateEmail () {
     console.log(emailArray2);
 
     if (emailArray2[0] === '' || emailArray2[1] === ''|| emailArray2[2] === '' || emailArray2[3] === '' || emailArray2[4] === '' ) {
-        alert("Email Address is invalid");
+        console.log("Email Address is invalid");
     }
 
     else if (emailArray2[0] === undefined || emailArray2[1] === undefined || emailArray2[2] === undefined || emailArray2[3] === undefined || emailArray2[4] === undefined ) {
-        alert("Email Address is invalid");
+        console.log("Email Address is invalid");
+    }
+
+    else {
+        console.log("Email Address is valid")
+        return email;
     }
 }
 
@@ -49,6 +79,12 @@ function validateCard () {
     const errorColour = document.querySelector("#form-input3");
 
     const cardNumberString = document.getElementById("form-input3").value
+
+    if (cardNumberString === '') {
+        console.log("Please Enter Your Card Number")
+        return;
+    };
+
     const cardNumArrayString = cardNumberString.split('');
     const cardNumArray = Array.from(cardNumArrayString, Number);
 
@@ -61,7 +97,7 @@ function validateCard () {
         for (i=0; i < cardNumArray.length; i++) {
 
             if (isNaN(cardNumArray[i])) {
-                alert("Card Number must contain only numerical characters, please re-enter");
+                console.log("Card Number must contain only numerical characters, please re-enter");
                 return;
             };
         };
@@ -80,7 +116,7 @@ function validateCard () {
         console.log("Total of Card Numbers: ", total)
 
         if (total === 0) {
-            alert("Card Number should not total to 0, please re-enter");
+            console.log("Card Number should not total to 0, please re-enter");
             console.log("The total should not be: ", total);
             return; };
 
@@ -154,17 +190,17 @@ function validateCard () {
         }
 
             else {
-            alert("Card Number is not Valid")
+            console.log("Card Number is not Valid")
             return;
             }
         
 
         const realCardNumber = cardNumArray.join('');
         console.log(realCardNumber);
-        return (realCardNumber);
+        return realCardNumber;
     }
         else {
-            alert("Your card number must be 16 digits long")
+            console.log("Your card number must be 16 digits long")
             
             errorColour.classList.add("invalid");
         }; 
@@ -173,9 +209,7 @@ function validateCard () {
 
 function submitButton() {
 
-    // Submit works when conditions are met: validateName() || validateEmail() || 
-
-    if (validateCard() && validateEmail()) {
+    if (validateName() && validateEmail() && validateCard()) {
 
         console.log("card is validated");
 
