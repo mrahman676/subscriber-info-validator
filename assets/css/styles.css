@@ -49,3 +49,8 @@ label {
 .card-design {
     width: 13vw;
 }
+
+.invalid {
+    background-color: #700064;
+}
+
