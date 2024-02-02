@@ -5,9 +5,22 @@ function validateName () {
     const name = document.getElementById("form-input1")
     const nameValue = name.value;
 
+    const regexName = /^[a-zA-Z !#$%&'*+\-/=?^_`{|}~]+$/;
+
+    if (!regexName.test(nameValue)) {
+        name.classList.add("invalid");
+        console.log("invalid characters")
+        alert("Invalid characters in the name field: Please only enter standard upper / lower case letters and permitted characters: !#$%&'*+-/=?^_`{|}~ ");
+        return;
+    }
+
+    else {
+        name.classList.remove("invalid");
+    }
+
     if (nameValue === '') {
         name.classList.add("invalid");
-        console.log("Name input incomplete: Please Enter Your given Name and Family Name.")
+        alert("Name input incomplete: Please Enter Your given name and Family name.")
         return;
     };
 
@@ -16,7 +29,7 @@ function validateName () {
     
     if (nameArray.length < 2) {
         name.classList.add("invalid");
-        console.log("Name input is invalid: Please Enter Your Given Name and Family Name.");
+        alert("Name input is invalid: Please Enter Your Given Name and Family Name.");
         return;
     }
 
@@ -27,17 +40,15 @@ function validateName () {
 
     if (firstName.length < 2) {
         name.classList.add("invalid");
-        console.log("Name input in invalid: Please enter your given name with more than 1 character");
+        alert("Name input in invalid: Please enter your given name with more than 1 character");
         return;
     }
 
     if (secondName.length < 2) {
         name.classList.add("invalid");
-        console.log("Name input in invalid: Please enter your given name with more than 1 character");
+        alert("Name input in invalid: Please enter your given name with more than 1 character");
         return;
     }
-
-    //  ||  < 2
 
     else {
         console.log("Name is valid")
@@ -49,56 +60,68 @@ function validateName () {
 function validateEmail () {
 
     const email = document.getElementById("form-input2")
-    emailValue = email.value;
+    const emailValue = email.value;
 
-    if (emailValue === '') {
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!regexEmail.test(emailValue)) {
         email.classList.add("invalid");
-        console.log("Please Enter Your Email")
+        alert("Invalid email format");
         return;
-    };
-
-    const emailArray = emailValue.split('@');
-
-    console.log(emailArray);
-
-    const other = emailArray[1].split('.');
-    
-    console.log(other);
-
-    const emailArray2 = [emailArray[0], '@', other[0], '.', other[1]];
-    
-    console.log(emailArray2);
-
-    if (emailArray2[0] === '' || emailArray2[1] === ''|| emailArray2[2] === '' || emailArray2[3] === '' || emailArray2[4] === '' ) {
-        email.classList.add("invalid");
-        console.log("Email Address is invalid");
-    }
-
-    else if (emailArray2[0] === undefined || emailArray2[1] === undefined || emailArray2[2] === undefined || emailArray2[3] === undefined || emailArray2[4] === undefined ) {
-        email.classList.add("invalid");
-        console.log("Email Address is invalid");
     }
 
     else {
-        console.log("Email Address is valid")
+        console.log("email valid");
         return emailValue;
     }
+
+
+    // // Code below was the method used before I learned about Regex, please review to see an alternative method.
+
+    // if (emailValue === '') {
+    //     email.classList.add("invalid");
+    //     alert("Please Enter Your Email")
+    //     return;
+    // };
+
+    // const emailArray = emailValue.split('@');
+
+    // console.log(emailArray);
+
+    // const other = emailArray[1].split('.');
+    
+    // console.log(other);
+
+    // const emailArray2 = [emailArray[0], '@', other[0], '.', other[1]];
+    
+    // console.log(emailArray2);
+
+    // if (emailArray2[0] === '' || emailArray2[1] === ''|| emailArray2[2] === '' || emailArray2[3] === '' || emailArray2[4] === '' ) {
+    //     email.classList.add("invalid");
+    //     alert("Email Address is invalid");
+    // }
+
+    // else if (emailArray2[0] === undefined || emailArray2[1] === undefined || emailArray2[2] === undefined || emailArray2[3] === undefined || emailArray2[4] === undefined ) {
+    //     email.classList.add("invalid");
+    //     alert("Email Address is invalid");
+    // }
+
+    // else {
+    //     console.log("Email Address is valid")
+    //     return emailValue;
+    // }
 }
 
 function validateCard () {
 
     // LUHN Algorithm
 
-    // Validate that card number is 16 digits
-
-    // Convert input into an array of numbers that can be checked for NaN and length of characters
-
     const cardNumberString = document.getElementById("form-input3");
     const cardValue = cardNumberString.value;
 
     if (cardValue === '') {
         cardNumberString.classList.add("invalid");
-        console.log("Please Enter Your Card Number")
+        alert("Please Enter Your Card Number")
         return;
     };
 
@@ -115,7 +138,7 @@ function validateCard () {
 
             if (isNaN(cardNumArray[i])) {
                 cardNumberString.classList.add("invalid");
-                console.log("Card Number must contain only numerical characters, please re-enter");
+                alert("Card Number must contain only numerical characters, please re-enter");
                 return;
             };
         };
@@ -135,7 +158,7 @@ function validateCard () {
 
         if (total === 0) {
             cardNumberString.classList.add("invalid");
-            console.log("Card Number should not total to 0, please re-enter");
+            alert("Card Number should not total to 0, please re-enter");
             console.log("The total should not be: ", total);
             return; };
 
@@ -210,7 +233,7 @@ function validateCard () {
 
             else {
             cardNumberString.classList.add("invalid");
-            console.log("Card Number is not Valid")
+            alert("Card Number is not Valid")
             return;
             }
         
@@ -220,7 +243,7 @@ function validateCard () {
         return realCardNumber;
     }
         else {
-            console.log("Your card number must be 16 digits long")
+            alert("Your card number must be 16 digits long")
             
             cardNumberString.classList.add("invalid");
         }; 
@@ -231,7 +254,7 @@ function submitButton() {
 
     if (validateName() && validateEmail() && validateCard()) {
 
-        console.log("card is validated");
+        console.log("form details are valid");
 
         const senderEmail = 'mailto:challenge@dn-uk.com';
         const nameValue = document.getElementById("form-input1").value;
