@@ -2,18 +2,21 @@
 
 function validateName () {
 
-    const name = document.getElementById("form-input1").value
+    const name = document.getElementById("form-input1")
+    const nameValue = name.value;
 
-    if (name === '') {
-        console.log("Please Enter Your Given Name and Family Name")
+    if (nameValue === '') {
+        name.classList.add("invalid");
+        console.log("Name input incomplete: Please Enter Your given Name and Family Name.")
         return;
     };
 
-    const nameArray = name.split(' ');
+    const nameArray = nameValue.split(' ');
     console.log(nameArray);
     
     if (nameArray.length < 2) {
-        console.log("Name is invalid");
+        name.classList.add("invalid");
+        console.log("Name input is invalid: Please Enter Your Given Name and Family Name.");
         return;
     }
 
@@ -22,27 +25,39 @@ function validateName () {
 
     // Ensure that users enter a first name with more than 1 character
 
-    if (firstName.length < 2 || secondName.length < 2) {
-        console.log("Name is invalid")
+    if (firstName.length < 2) {
+        name.classList.add("invalid");
+        console.log("Name input in invalid: Please enter your given name with more than 1 character");
+        return;
     }
+
+    if (secondName.length < 2) {
+        name.classList.add("invalid");
+        console.log("Name input in invalid: Please enter your given name with more than 1 character");
+        return;
+    }
+
+    //  ||  < 2
 
     else {
         console.log("Name is valid")
-        return name;
+        return nameValue;
     }
     
 }
 
 function validateEmail () {
 
-    const email = document.getElementById("form-input2").value
+    const email = document.getElementById("form-input2")
+    emailValue = email.value;
 
-    if (email === '') {
+    if (emailValue === '') {
+        email.classList.add("invalid");
         console.log("Please Enter Your Email")
         return;
     };
 
-    const emailArray = email.split('@');
+    const emailArray = emailValue.split('@');
 
     console.log(emailArray);
 
@@ -55,16 +70,18 @@ function validateEmail () {
     console.log(emailArray2);
 
     if (emailArray2[0] === '' || emailArray2[1] === ''|| emailArray2[2] === '' || emailArray2[3] === '' || emailArray2[4] === '' ) {
+        email.classList.add("invalid");
         console.log("Email Address is invalid");
     }
 
     else if (emailArray2[0] === undefined || emailArray2[1] === undefined || emailArray2[2] === undefined || emailArray2[3] === undefined || emailArray2[4] === undefined ) {
+        email.classList.add("invalid");
         console.log("Email Address is invalid");
     }
 
     else {
         console.log("Email Address is valid")
-        return email;
+        return emailValue;
     }
 }
 
@@ -76,16 +93,16 @@ function validateCard () {
 
     // Convert input into an array of numbers that can be checked for NaN and length of characters
 
-    const errorColour = document.querySelector("#form-input3");
+    const cardNumberString = document.getElementById("form-input3");
+    const cardValue = cardNumberString.value;
 
-    const cardNumberString = document.getElementById("form-input3").value
-
-    if (cardNumberString === '') {
+    if (cardValue === '') {
+        cardNumberString.classList.add("invalid");
         console.log("Please Enter Your Card Number")
         return;
     };
 
-    const cardNumArrayString = cardNumberString.split('');
+    const cardNumArrayString = cardValue.split('');
     const cardNumArray = Array.from(cardNumArrayString, Number);
 
     console.log("Card Number from Form: ", cardNumArray);
@@ -97,6 +114,7 @@ function validateCard () {
         for (i=0; i < cardNumArray.length; i++) {
 
             if (isNaN(cardNumArray[i])) {
+                cardNumberString.classList.add("invalid");
                 console.log("Card Number must contain only numerical characters, please re-enter");
                 return;
             };
@@ -116,6 +134,7 @@ function validateCard () {
         console.log("Total of Card Numbers: ", total)
 
         if (total === 0) {
+            cardNumberString.classList.add("invalid");
             console.log("Card Number should not total to 0, please re-enter");
             console.log("The total should not be: ", total);
             return; };
@@ -190,6 +209,7 @@ function validateCard () {
         }
 
             else {
+            cardNumberString.classList.add("invalid");
             console.log("Card Number is not Valid")
             return;
             }
@@ -202,7 +222,7 @@ function validateCard () {
         else {
             console.log("Your card number must be 16 digits long")
             
-            errorColour.classList.add("invalid");
+            cardNumberString.classList.add("invalid");
         }; 
 
 }

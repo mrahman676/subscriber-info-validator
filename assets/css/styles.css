@@ -6,9 +6,9 @@
     border-radius: 30px;  
     background-color: #89c82e;
     color: #3c3c3b; 
-    width: 20vw;
+    width: 30vw;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 30px;
+    padding: 32px;
 
 };
 
@@ -24,9 +24,10 @@ label {
     display: table-cell;
 }
 
-#form-input1, #form-input2, #form-input3 {
+#name, #email, #card {
     display: table-cell;
-    width: 13vw;
+    width: 26vw;
+    margin-left: 1px;
 }
 
 
@@ -46,11 +47,10 @@ label {
     font-size: 11px;
 }
 
-.card-design {
-    width: 13vw;
-}
-
 .invalid {
     background-color: #700064;
 }
 
+#labelForm {
+    margin-right: 10px;
+}
